@@ -1,0 +1,1385 @@
+2026-04-12 20:20:43,054 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-04-12 20:20:43,365 - app.init_db - INFO - ✅ База данных инициализирована (таблицы + индексы)
+2026-04-12 20:20:43,385 - app.services.delivery - INFO - ✅ Создана зона доставки по умолчанию
+2026-04-12 20:20:43,405 - __main__ - INFO - ✅ Роутеры зарегистрированы
+2026-04-12 20:20:43,414 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-12 20:20:43,415 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-12 20:20:43,416 - __main__ - INFO - ✅ Планировщик настроен
+2026-04-12 20:20:43,428 - apscheduler.scheduler - INFO - Added job "daily_tasks" to job store "default"
+2026-04-12 20:20:43,429 - apscheduler.scheduler - INFO - Added job "daily_broadcast" to job store "default"
+2026-04-12 20:20:43,430 - apscheduler.scheduler - INFO - Scheduler started
+2026-04-12 20:21:04,724 - __main__ - CRITICAL - Критическая ошибка: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+               ~~~~~~~~~~~~^
+        url,
+        ^^^^
+        data=form,
+        ^^^^^^^^^^
+        timeout=self.timeout if timeout is None else timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as resp:
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "f:\cafe-bot\main.py", line 177, in main
+    logger.info(f"🤖 Бот запущен (@{(await bot.get_me()).username})")
+                                     ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-04-12 20:21:04,813 - __main__ - INFO - Получен сигнал None, завершение...
+2026-04-12 20:21:04,814 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-04-12 20:21:04,950 - app.database - INFO - 🔌 Все соединения закрыты
+2026-04-12 20:21:05,223 - __main__ - INFO - Бот остановлен
+2026-04-12 20:22:39,152 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-04-12 20:22:39,175 - app.init_db - INFO - ✅ База данных инициализирована (таблицы + индексы)
+2026-04-12 20:22:39,184 - __main__ - INFO - ✅ Роутеры зарегистрированы
+2026-04-12 20:22:39,188 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-12 20:22:39,188 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-12 20:22:39,189 - __main__ - INFO - ✅ Планировщик настроен
+2026-04-12 20:22:39,193 - apscheduler.scheduler - INFO - Added job "daily_tasks" to job store "default"
+2026-04-12 20:22:39,193 - apscheduler.scheduler - INFO - Added job "daily_broadcast" to job store "default"
+2026-04-12 20:22:39,193 - apscheduler.scheduler - INFO - Scheduler started
+2026-04-12 20:23:00,284 - __main__ - CRITICAL - Критическая ошибка: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+               ~~~~~~~~~~~~^
+        url,
+        ^^^^
+        data=form,
+        ^^^^^^^^^^
+        timeout=self.timeout if timeout is None else timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as resp:
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "f:\cafe-bot\main.py", line 182, in main
+    logger.info(f"🤖 Бот запущен (@{(await bot.get_me()).username})")
+                                     ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-04-12 20:23:00,353 - __main__ - INFO - Получен сигнал None, завершение...
+2026-04-12 20:23:00,354 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-04-12 20:23:00,400 - app.database - INFO - 🔌 Все соединения закрыты
+2026-04-12 20:23:00,660 - __main__ - INFO - Бот остановлен
+2026-04-12 20:24:11,342 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-04-12 20:24:11,354 - app.init_db - INFO - ✅ База данных инициализирована (таблицы + индексы)
+2026-04-12 20:24:11,357 - __main__ - INFO - ✅ Роутеры зарегистрированы
+2026-04-12 20:24:11,357 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-12 20:24:11,358 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-12 20:24:11,358 - __main__ - INFO - ✅ Планировщик настроен
+2026-04-12 20:24:11,360 - apscheduler.scheduler - INFO - Added job "daily_tasks" to job store "default"
+2026-04-12 20:24:11,360 - apscheduler.scheduler - INFO - Added job "daily_broadcast" to job store "default"
+2026-04-12 20:24:11,361 - apscheduler.scheduler - INFO - Scheduler started
+2026-04-12 20:24:32,434 - __main__ - CRITICAL - Критическая ошибка: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+               ~~~~~~~~~~~~^
+        url,
+        ^^^^
+        data=form,
+        ^^^^^^^^^^
+        timeout=self.timeout if timeout is None else timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as resp:
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "f:\cafe-bot\main.py", line 197, in main
+    logger.info(f"🤖 Бот запущен (@{(await bot.get_me()).username})")
+                                     ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-04-12 20:24:32,488 - __main__ - INFO - Получен сигнал None, завершение...
+2026-04-12 20:24:32,489 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-04-12 20:24:33,027 - app.database - INFO - 🔌 Все соединения закрыты
+2026-04-12 20:24:33,284 - __main__ - INFO - Бот остановлен
+2026-04-12 20:26:33,471 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-04-12 20:26:33,482 - app.init_db - INFO - ✅ База данных инициализирована (таблицы + индексы)
+2026-04-12 20:26:33,485 - __main__ - INFO - ✅ Роутеры зарегистрированы
+2026-04-12 20:26:33,486 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-12 20:26:33,487 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-12 20:26:33,487 - __main__ - INFO - ✅ Планировщик настроен
+2026-04-12 20:26:33,489 - apscheduler.scheduler - INFO - Added job "daily_tasks" to job store "default"
+2026-04-12 20:26:33,489 - apscheduler.scheduler - INFO - Added job "daily_broadcast" to job store "default"
+2026-04-12 20:26:33,490 - apscheduler.scheduler - INFO - Scheduler started
+2026-04-12 20:26:54,577 - __main__ - CRITICAL - Критическая ошибка: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+               ~~~~~~~~~~~~^
+        url,
+        ^^^^
+        data=form,
+        ^^^^^^^^^^
+        timeout=self.timeout if timeout is None else timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as resp:
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\cafe-bot\main.py", line 197, in main
+    logger.info(f"🤖 Бот запущен (@{(await bot.get_me()).username})")
+                                     ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-04-12 20:26:54,667 - __main__ - INFO - Получен сигнал None, завершение...
+2026-04-12 20:26:54,669 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-04-12 20:26:54,706 - app.database - INFO - 🔌 Все соединения закрыты
+2026-04-12 20:26:54,972 - __main__ - INFO - Бот остановлен
+2026-04-12 20:33:46,629 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-04-12 20:33:46,657 - app.init_db - INFO - ✅ База данных инициализирована (таблицы + индексы)
+2026-04-12 20:33:46,666 - __main__ - INFO - ✅ Роутеры зарегистрированы
+2026-04-12 20:33:46,668 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-12 20:33:46,670 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-12 20:33:46,671 - __main__ - INFO - ✅ Планировщик настроен
+2026-04-12 20:33:46,678 - apscheduler.scheduler - INFO - Added job "daily_tasks" to job store "default"
+2026-04-12 20:33:46,682 - apscheduler.scheduler - INFO - Added job "daily_broadcast" to job store "default"
+2026-04-12 20:33:46,685 - apscheduler.scheduler - INFO - Scheduler started
+2026-04-12 20:34:07,773 - __main__ - CRITICAL - Критическая ошибка: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+               ~~~~~~~~~~~~^
+        url,
+        ^^^^
+        data=form,
+        ^^^^^^^^^^
+        timeout=self.timeout if timeout is None else timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as resp:
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\cafe-bot\main.py", line 205, in main
+    logger.info(f"🤖 Бот запущен (@{(await bot.get_me()).username})")
+                                     ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-04-12 20:34:07,923 - __main__ - INFO - Получен сигнал None, завершение...
+2026-04-12 20:34:08,026 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-04-12 20:34:08,096 - app.database - INFO - 🔌 Все соединения закрыты
+2026-04-12 20:34:08,362 - __main__ - INFO - Бот остановлен
+2026-04-17 11:12:15,749 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-04-17 11:12:15,762 - app.migrations - INFO - [MIGRATION] Применена v1: initial_schema
+2026-04-17 11:12:15,770 - app.migrations - INFO - [MIGRATION] Применена v2: add_indexes
+2026-04-17 11:12:15,771 - app.migrations - INFO - [MIGRATION] Применена v3: add_default_delivery_zone
+2026-04-17 11:12:15,777 - app.migrations - INFO - [MIGRATION] Применена v4: table_reservations
+2026-04-17 11:12:15,779 - app.migrations - INFO - [MIGRATION] Применена v5: seed_default_tables
+2026-04-17 11:12:15,798 - app.migrations - INFO - [MIGRATION] Применена v6: dish_constructor
+2026-04-17 11:12:15,848 - app.migrations - INFO - [MIGRATION] Применена v7: seed_ingredients_and_templates
+2026-04-17 11:12:15,893 - app.migrations - INFO - [MIGRATION] Применено. Последняя версия: 7
+2026-04-17 11:12:15,937 - __main__ - INFO - ✅ Роутеры зарегистрированы
+2026-04-17 11:12:15,957 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 11:12:16,022 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 11:12:16,089 - __main__ - INFO - ✅ Планировщик настроен
+2026-04-17 11:12:16,134 - apscheduler.scheduler - INFO - Added job "daily_tasks" to job store "default"
+2026-04-17 11:12:16,162 - apscheduler.scheduler - INFO - Added job "daily_broadcast" to job store "default"
+2026-04-17 11:12:16,164 - apscheduler.scheduler - INFO - Scheduler started
+2026-04-17 11:12:37,309 - __main__ - CRITICAL - Критическая ошибка: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+               ~~~~~~~~~~~~^
+        url,
+        ^^^^
+        data=form,
+        ^^^^^^^^^^
+        timeout=self.timeout if timeout is None else timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as resp:
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Новая папка (3)\cafe-bot\main.py", line 224, in main
+    logger.info(f"[BOT] Бот запущен (@{(await bot.get_me()).username})")
+                                        ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-04-17 11:12:37,377 - __main__ - INFO - Получен сигнал None, завершение...
+2026-04-17 11:12:37,378 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-04-17 11:12:37,422 - app.database - INFO - 🔌 Все соединения закрыты
+2026-04-17 11:12:37,685 - __main__ - INFO - Бот остановлен
+2026-04-18 09:56:19,310 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-04-18 09:56:19,312 - app.migrations - INFO - [MIGRATION] Применено. Последняя версия: 7
+2026-04-18 09:56:19,314 - __main__ - INFO - ✅ Роутеры зарегистрированы
+2026-04-18 09:56:19,316 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-18 09:56:19,317 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-18 09:56:19,317 - __main__ - INFO - ✅ Планировщик настроен
+2026-04-18 09:56:19,320 - apscheduler.scheduler - INFO - Added job "daily_tasks" to job store "default"
+2026-04-18 09:56:19,321 - apscheduler.scheduler - INFO - Added job "daily_broadcast" to job store "default"
+2026-04-18 09:56:19,321 - apscheduler.scheduler - INFO - Scheduler started
+2026-04-18 09:56:40,425 - __main__ - CRITICAL - Критическая ошибка: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+               ~~~~~~~~~~~~^
+        url,
+        ^^^^
+        data=form,
+        ^^^^^^^^^^
+        timeout=self.timeout if timeout is None else timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as resp:
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Новая папка (3)\cafe-bot\main.py", line 224, in main
+    logger.info(f"[BOT] Бот запущен (@{(await bot.get_me()).username})")
+                                        ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-04-18 09:56:40,634 - __main__ - INFO - Получен сигнал None, завершение...
+2026-04-18 09:56:40,636 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-04-18 09:56:40,651 - app.database - INFO - 🔌 Все соединения закрыты
+2026-04-18 09:56:40,907 - __main__ - INFO - Бот остановлен
+2026-04-18 09:58:53,232 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-04-18 09:58:53,235 - app.migrations - INFO - [MIGRATION] Применено. Последняя версия: 7
+2026-04-18 09:58:53,236 - __main__ - INFO - ✅ Роутеры зарегистрированы
+2026-04-18 09:58:53,238 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-18 09:58:53,239 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-18 09:58:53,242 - __main__ - INFO - ✅ Планировщик настроен
+2026-04-18 09:58:53,246 - apscheduler.scheduler - INFO - Added job "daily_tasks" to job store "default"
+2026-04-18 09:58:53,249 - apscheduler.scheduler - INFO - Added job "daily_broadcast" to job store "default"
+2026-04-18 09:58:53,250 - apscheduler.scheduler - INFO - Scheduler started
+2026-04-18 09:58:53,289 - __main__ - CRITICAL - Критическая ошибка: HTTP Client says - ClientConnectorDNSError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+               ~~~~~~~~~~~~^
+        url,
+        ^^^^
+        data=form,
+        ^^^^^^^^^^
+        timeout=self.timeout if timeout is None else timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as resp:
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Новая папка (3)\cafe-bot\main.py", line 224, in main
+    logger.info(f"[BOT] Бот запущен (@{(await bot.get_me()).username})")
+                                        ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorDNSError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+2026-04-18 09:58:53,381 - __main__ - INFO - Получен сигнал None, завершение...
+2026-04-18 09:58:53,383 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-04-18 09:58:53,400 - app.database - INFO - 🔌 Все соединения закрыты
+2026-04-18 09:58:53,652 - __main__ - INFO - Бот остановлен
+2026-04-18 14:00:10,492 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-04-18 14:00:10,495 - app.migrations - INFO - [MIGRATION] Применено. Последняя версия: 7
+2026-04-18 14:00:10,496 - __main__ - CRITICAL - Критическая ошибка: 'Connection' object has no attribute 'closed'
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\Новая папка (3)\cafe-bot\main.py", line 215, in main
+    await run_migrations()
+  File "C:\Users\Admin\Desktop\Новая папка (3)\cafe-bot\app\migrations.py", line 434, in run_migrations
+    async with get_db() as db:
+               ~~~~~~^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 221, in __aexit__
+    await anext(self.gen)
+  File "C:\Users\Admin\Desktop\Новая папка (3)\cafe-bot\app\database.py", line 101, in get_db
+    await db_pool.return_connection(conn)
+  File "C:\Users\Admin\Desktop\Новая папка (3)\cafe-bot\app\database.py", line 62, in return_connection
+    if len(self._connections) < self._pool_size and not conn.closed:
+                                                        ^^^^^^^^^^^
+AttributeError: 'Connection' object has no attribute 'closed'. Did you mean: 'close'?
+2026-04-18 14:00:10,512 - __main__ - INFO - Получен сигнал None, завершение...
+2026-04-18 14:00:10,523 - app.database - INFO - 🔌 Все соединения закрыты
+2026-04-18 14:00:10,524 - __main__ - INFO - Бот остановлен
+2026-04-20 10:11:15,804 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-04-20 10:11:15,973 - app.migrations - INFO - [MIGRATION] Применено. Последняя версия: 7
+2026-04-20 10:11:15,974 - __main__ - INFO - ✅ Роутеры зарегистрированы
+2026-04-20 10:11:15,974 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-20 10:11:15,975 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-20 10:11:15,975 - __main__ - INFO - ✅ Планировщик настроен
+2026-04-20 10:11:15,976 - apscheduler.scheduler - INFO - Added job "daily_tasks" to job store "default"
+2026-04-20 10:11:15,977 - apscheduler.scheduler - INFO - Added job "daily_broadcast" to job store "default"
+2026-04-20 10:11:15,977 - apscheduler.scheduler - INFO - Scheduler started
+2026-04-20 10:11:16,416 - __main__ - INFO - [BOT] Бот запущен (@Bogatyr2026_bot)
+2026-04-20 10:11:16,417 - __main__ - INFO - Админы: [7895713582, 128958273]
+2026-04-20 10:11:16,418 - aiogram.dispatcher - INFO - Start polling
+2026-04-20 10:11:16,536 - aiogram.dispatcher - INFO - Run polling for bot @Bogatyr2026_bot id=8527038224 - 'bogatyr_bot'
+2026-04-20 10:11:16,661 - aiogram.event - INFO - Update id=844732764 is handled. Duration 0 ms by bot id=8527038224
+2026-04-20 10:11:16,663 - app.handlers.user_handlers - INFO - Новый пользователь: 7895713582 (@None)
+2026-04-20 10:11:17,064 - aiogram.event - INFO - Update id=844732763 is handled. Duration 403 ms by bot id=8527038224
+2026-04-20 10:12:24,370 - aiogram.event - INFO - Update id=844732765 is handled. Duration 256 ms by bot id=8527038224
+2026-04-20 10:12:31,639 - aiogram.event - INFO - Update id=844732766 is handled. Duration 154 ms by bot id=8527038224
+2026-04-20 10:12:33,978 - aiogram.event - INFO - Update id=844732767 is handled. Duration 152 ms by bot id=8527038224
+2026-04-20 10:12:35,325 - aiogram.event - INFO - Update id=844732768 is handled. Duration 149 ms by bot id=8527038224
+2026-04-20 10:12:38,614 - aiogram.event - INFO - Update id=844732769 is handled. Duration 146 ms by bot id=8527038224
+2026-04-20 10:12:56,905 - aiogram.event - INFO - Update id=844732770 is handled. Duration 146 ms by bot id=8527038224
+2026-04-20 10:13:11,541 - aiogram.event - INFO - Update id=844732771 is handled. Duration 151 ms by bot id=8527038224
+2026-04-20 10:13:13,852 - aiogram.event - INFO - Update id=844732772 is handled. Duration 156 ms by bot id=8527038224
+2026-04-20 10:13:17,736 - aiogram.event - INFO - Update id=844732773 is handled. Duration 175 ms by bot id=8527038224
+2026-04-20 10:13:26,526 - aiogram.event - INFO - Update id=844732774 is handled. Duration 154 ms by bot id=8527038224
+2026-04-20 10:13:31,572 - aiogram.event - INFO - Update id=844732775 is handled. Duration 145 ms by bot id=8527038224
+2026-04-20 10:13:52,040 - aiogram.event - INFO - Update id=844732776 is handled. Duration 142 ms by bot id=8527038224
+2026-04-20 10:13:55,890 - aiogram.event - INFO - Update id=844732777 is handled. Duration 279 ms by bot id=8527038224
+2026-04-20 10:13:57,878 - aiogram.event - INFO - Update id=844732778 is handled. Duration 376 ms by bot id=8527038224
+2026-04-20 10:14:03,104 - aiogram.event - INFO - Update id=844732779 is handled. Duration 293 ms by bot id=8527038224
+2026-04-20 10:14:05,967 - aiogram.event - INFO - Update id=844732780 is handled. Duration 136 ms by bot id=8527038224
+2026-04-20 10:14:06,568 - app.handlers.user_handlers - INFO - Новый пользователь: 128958273 (@Jaquob)
+2026-04-20 10:14:06,759 - aiogram.event - INFO - Update id=844732781 is handled. Duration 192 ms by bot id=8527038224
+2026-04-20 10:14:09,322 - aiogram.event - INFO - Update id=844732782 is handled. Duration 151 ms by bot id=8527038224
+2026-04-20 10:14:10,679 - aiogram.event - INFO - Update id=844732783 is handled. Duration 138 ms by bot id=8527038224
+2026-04-20 10:14:13,250 - aiogram.event - INFO - Update id=844732784 is handled. Duration 153 ms by bot id=8527038224
+2026-04-20 10:14:13,662 - aiogram.event - INFO - Update id=844732785 is handled. Duration 161 ms by bot id=8527038224
+2026-04-20 10:14:17,888 - aiogram.event - INFO - Update id=844732786 is handled. Duration 153 ms by bot id=8527038224
+2026-04-20 10:14:18,860 - aiogram.event - INFO - Update id=844732787 is handled. Duration 140 ms by bot id=8527038224
+2026-04-20 10:14:23,596 - aiogram.event - INFO - Update id=844732788 is handled. Duration 209 ms by bot id=8527038224
+2026-04-20 10:14:25,934 - aiogram.event - INFO - Update id=844732789 is handled. Duration 149 ms by bot id=8527038224
+2026-04-20 10:14:34,024 - aiogram.event - INFO - Update id=844732790 is handled. Duration 277 ms by bot id=8527038224
+2026-04-20 10:14:38,077 - aiogram.event - INFO - Update id=844732791 is handled. Duration 154 ms by bot id=8527038224
+2026-04-20 10:14:53,803 - aiogram.event - INFO - Update id=844732792 is handled. Duration 151 ms by bot id=8527038224
+2026-04-20 10:14:58,146 - aiogram.event - INFO - Update id=844732793 is handled. Duration 149 ms by bot id=8527038224
+2026-04-20 10:15:01,167 - aiogram.event - INFO - Update id=844732794 is handled. Duration 154 ms by bot id=8527038224
+2026-04-20 10:15:49,215 - aiogram.event - INFO - Update id=844732795 is handled. Duration 136 ms by bot id=8527038224
+2026-04-20 10:15:57,327 - aiogram.event - INFO - Update id=844732796 is handled. Duration 166 ms by bot id=8527038224
+2026-04-20 10:16:03,335 - aiogram.event - INFO - Update id=844732797 is handled. Duration 139 ms by bot id=8527038224
+2026-04-20 10:16:05,135 - aiogram.event - INFO - Update id=844732798 is handled. Duration 151 ms by bot id=8527038224
+2026-04-20 10:16:07,081 - aiogram.event - INFO - Update id=844732799 is handled. Duration 137 ms by bot id=8527038224
+2026-04-20 10:16:08,625 - aiogram.event - INFO - Update id=844732800 is handled. Duration 200 ms by bot id=8527038224
+2026-04-20 10:16:12,076 - aiogram.event - INFO - Update id=844732801 is handled. Duration 151 ms by bot id=8527038224
+2026-04-20 10:16:13,852 - aiogram.event - INFO - Update id=844732802 is handled. Duration 142 ms by bot id=8527038224
+2026-04-20 10:16:18,818 - aiogram.event - INFO - Update id=844732803 is handled. Duration 142 ms by bot id=8527038224
+2026-04-20 10:16:23,577 - aiogram.event - INFO - Update id=844732804 is handled. Duration 129 ms by bot id=8527038224
+2026-04-20 10:16:28,473 - aiogram.event - INFO - Update id=844732805 is handled. Duration 133 ms by bot id=8527038224
+2026-04-20 10:16:31,875 - aiogram.event - INFO - Update id=844732806 is handled. Duration 164 ms by bot id=8527038224
+2026-04-20 10:16:35,494 - aiogram.event - INFO - Update id=844732807 is handled. Duration 162 ms by bot id=8527038224
+2026-04-20 10:16:39,860 - aiogram.event - INFO - Update id=844732808 is handled. Duration 406 ms by bot id=8527038224
+2026-04-20 10:16:41,902 - aiogram.event - INFO - Update id=844732809 is handled. Duration 273 ms by bot id=8527038224
+2026-04-20 10:16:44,647 - aiogram.event - INFO - Update id=844732810 is handled. Duration 416 ms by bot id=8527038224
+2026-04-20 10:16:48,057 - aiogram.event - INFO - Update id=844732811 is handled. Duration 390 ms by bot id=8527038224
+2026-04-20 10:16:50,615 - aiogram.event - INFO - Update id=844732812 is handled. Duration 394 ms by bot id=8527038224
+2026-04-20 10:16:52,383 - aiogram.event - INFO - Update id=844732813 is handled. Duration 304 ms by bot id=8527038224
+2026-04-20 10:16:55,664 - aiogram.event - INFO - Update id=844732814 is handled. Duration 265 ms by bot id=8527038224
+2026-04-20 10:17:06,690 - aiogram.event - INFO - Update id=844732815 is handled. Duration 269 ms by bot id=8527038224
+2026-04-20 10:17:20,559 - aiogram.event - INFO - Update id=844732816 is handled. Duration 335 ms by bot id=8527038224
+2026-04-20 10:17:22,321 - aiogram.event - INFO - Update id=844732817 is handled. Duration 337 ms by bot id=8527038224
+2026-04-20 10:38:27,955 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-04-20 10:38:27,958 - aiogram.dispatcher - INFO - Polling stopped for bot @Bogatyr2026_bot id=8527038224 - 'bogatyr_bot'
+2026-04-20 10:38:27,960 - aiogram.dispatcher - INFO - Polling stopped
+2026-04-20 10:38:28,211 - __main__ - INFO - Получен сигнал None, завершение...
+2026-04-20 10:38:28,212 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-04-20 10:38:28,242 - app.database - INFO - 🔌 Все соединения закрыты
+2026-04-20 10:38:28,243 - __main__ - INFO - Бот остановлен
+2026-04-21 23:34:43,086 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-04-21 23:34:43,090 - app.migrations - INFO - [MIGRATION] Применено. Последняя версия: 7
+2026-04-21 23:34:43,092 - __main__ - INFO - ✅ Роутеры зарегистрированы
+2026-04-21 23:34:43,094 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-21 23:34:43,095 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-21 23:34:43,095 - __main__ - INFO - ✅ Планировщик настроен
+2026-04-21 23:34:43,099 - apscheduler.scheduler - INFO - Added job "daily_tasks" to job store "default"
+2026-04-21 23:34:43,100 - apscheduler.scheduler - INFO - Added job "daily_broadcast" to job store "default"
+2026-04-21 23:34:43,101 - apscheduler.scheduler - INFO - Scheduler started
+2026-04-21 23:35:04,685 - __main__ - CRITICAL - Критическая ошибка: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+               ~~~~~~~~~~~~^
+        url,
+        ^^^^
+        data=form,
+        ^^^^^^^^^^
+        timeout=self.timeout if timeout is None else timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as resp:
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\cafe-bot\main.py", line 203, in main
+    logger.info(f"[BOT] Бот запущен (@{(await bot.get_me()).username})")
+                                        ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-04-21 23:35:04,759 - __main__ - INFO - Получен сигнал None, завершение...
+2026-04-21 23:35:04,760 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-04-21 23:35:04,775 - app.database - INFO - 🔌 Все соединения закрыты
+2026-04-21 23:35:05,026 - __main__ - INFO - Бот остановлен
+2026-05-19 08:51:57,149 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-05-19 08:51:57,508 - app.migrations - INFO - [MIGRATION] Применена v8: add_payment_check_to_orders
+2026-05-19 08:51:57,510 - app.migrations - INFO - [MIGRATION] Применена v9: add_courier_photo_to_orders
+2026-05-19 08:51:57,510 - app.migrations - INFO - [MIGRATION] Применено. Последняя версия: 9
+2026-05-19 08:51:57,512 - __main__ - INFO - ✅ Роутеры зарегистрированы
+2026-05-19 08:51:57,512 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-05-19 08:51:57,513 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-05-19 08:51:57,513 - __main__ - INFO - ✅ Планировщик настроен
+2026-05-19 08:51:57,515 - apscheduler.scheduler - INFO - Added job "daily_tasks" to job store "default"
+2026-05-19 08:51:57,515 - apscheduler.scheduler - INFO - Added job "daily_broadcast" to job store "default"
+2026-05-19 08:51:57,515 - apscheduler.scheduler - INFO - Scheduler started
+2026-05-19 08:51:57,882 - __main__ - INFO - [BOT] Бот запущен (@Bogatyr2026_bot)
+2026-05-19 08:51:57,883 - __main__ - INFO - Админы: [7895713582, 128958273]
+2026-05-19 08:51:57,884 - aiogram.dispatcher - INFO - Start polling
+2026-05-19 08:51:57,998 - aiogram.dispatcher - INFO - Run polling for bot @Bogatyr2026_bot id=8527038224 - 'bogatyr_bot'
+2026-05-19 09:01:16,659 - aiogram.event - INFO - Update id=844734098 is handled. Duration 415 ms by bot id=8527038224
+2026-05-19 09:01:20,298 - aiogram.event - INFO - Update id=844734099 is handled. Duration 155 ms by bot id=8527038224
+2026-05-19 09:01:22,309 - app.handlers.user_handlers - INFO - Новый пользователь: 2009403659 (@Goldenium)
+2026-05-19 09:01:22,541 - aiogram.event - INFO - Update id=844734100 is handled. Duration 237 ms by bot id=8527038224
+2026-05-19 09:01:24,758 - aiogram.event - INFO - Update id=844734101 is handled. Duration 277 ms by bot id=8527038224
+2026-05-19 09:01:26,502 - aiogram.event - INFO - Update id=844734102 is handled. Duration 279 ms by bot id=8527038224
+2026-05-19 09:01:28,378 - aiogram.event - INFO - Update id=844734103 is handled. Duration 378 ms by bot id=8527038224
+2026-05-19 09:01:29,847 - aiogram.event - INFO - Update id=844734104 is handled. Duration 401 ms by bot id=8527038224
+2026-05-19 09:01:31,141 - aiogram.event - INFO - Update id=844734105 is handled. Duration 408 ms by bot id=8527038224
+2026-05-19 09:01:32,728 - aiogram.event - INFO - Update id=844734106 is handled. Duration 398 ms by bot id=8527038224
+2026-05-19 09:01:34,206 - aiogram.event - INFO - Update id=844734107 is handled. Duration 333 ms by bot id=8527038224
+2026-05-19 09:01:36,886 - aiogram.event - INFO - Update id=844734108 is handled. Duration 173 ms by bot id=8527038224
+2026-05-19 09:01:38,845 - aiogram.event - INFO - Update id=844734109 is handled. Duration 177 ms by bot id=8527038224
+2026-05-19 09:01:44,239 - aiogram.event - INFO - Update id=844734110 is handled. Duration 138 ms by bot id=8527038224
+2026-05-19 09:01:46,307 - aiogram.event - INFO - Update id=844734111 is handled. Duration 145 ms by bot id=8527038224
+2026-05-19 09:01:47,844 - app.handlers.cart_handler - INFO - ✅ Заказ #1 создан пользователем 2009403659, сумма: 419₽
+2026-05-19 09:01:48,576 - aiogram.event - INFO - Update id=844734112 is handled. Duration 739 ms by bot id=8527038224
+2026-05-19 09:01:51,111 - aiogram.event - INFO - Update id=844734113 is handled. Duration 384 ms by bot id=8527038224
+2026-05-19 09:02:01,199 - app.handlers.payment_check_handler - INFO - ✅ Админы уведомлены о новом чеке для заказа #1
+2026-05-19 09:02:01,199 - app.handlers.payment_check_handler - INFO - ✅ Чек для заказа #1 получен от пользователя 2009403659
+2026-05-19 09:02:01,199 - aiogram.event - INFO - Update id=844734114 is handled. Duration 1085 ms by bot id=8527038224
+2026-05-19 09:02:08,679 - aiogram.event - INFO - Update id=844734115 is handled. Duration 144 ms by bot id=8527038224
+2026-05-19 09:02:13,361 - aiogram.event - INFO - Update id=844734116 is handled. Duration 187 ms by bot id=8527038224
+2026-05-19 09:02:24,881 - aiogram.event - INFO - Update id=844734117 is handled. Duration 529 ms by bot id=8527038224
+2026-05-19 09:02:29,547 - aiogram.event - INFO - Update id=844734118 is handled. Duration 538 ms by bot id=8527038224
+2026-05-19 09:02:32,349 - aiogram.event - INFO - Update id=844734119 is handled. Duration 153 ms by bot id=8527038224
+2026-05-19 09:02:33,705 - aiogram.event - INFO - Update id=844734120 is handled. Duration 148 ms by bot id=8527038224
+2026-05-19 09:02:36,149 - aiogram.event - INFO - Update id=844734121 is handled. Duration 140 ms by bot id=8527038224
+2026-05-19 09:02:39,281 - aiogram.event - INFO - Update id=844734122 is handled. Duration 147 ms by bot id=8527038224
+2026-05-19 09:02:53,859 - aiogram.event - INFO - Update id=844734123 is handled. Duration 428 ms by bot id=8527038224
+2026-05-19 09:03:05,764 - aiogram.event - INFO - Update id=844734124 is handled. Duration 432 ms by bot id=8527038224
+2026-05-19 09:03:10,645 - aiogram.event - INFO - Update id=844734125 is handled. Duration 572 ms by bot id=8527038224
+2026-05-19 09:03:16,585 - aiogram.event - INFO - Update id=844734126 is handled. Duration 428 ms by bot id=8527038224
+2026-05-19 09:03:19,987 - app.handlers.common_handler - WARNING - Неизвестный callback: review_order_1
+2026-05-19 09:03:20,119 - aiogram.event - INFO - Update id=844734127 is handled. Duration 144 ms by bot id=8527038224
+2026-05-19 09:03:23,920 - app.handlers.common_handler - WARNING - Неизвестный callback: review_order_1
+2026-05-19 09:03:24,046 - aiogram.event - INFO - Update id=844734128 is handled. Duration 144 ms by bot id=8527038224
+2026-05-19 09:03:26,591 - aiogram.event - INFO - Update id=844734129 is handled. Duration 147 ms by bot id=8527038224
+2026-05-19 09:03:29,950 - aiogram.event - INFO - Update id=844734130 is handled. Duration 196 ms by bot id=8527038224
+2026-05-19 09:03:32,230 - aiogram.event - INFO - Update id=844734131 is handled. Duration 153 ms by bot id=8527038224
+2026-05-19 09:43:28,532 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-05-19 09:43:28,533 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-05-19 09:43:28,535 - aiogram.dispatcher - INFO - Polling stopped for bot @Bogatyr2026_bot id=8527038224 - 'bogatyr_bot'
+2026-05-19 09:43:28,536 - aiogram.dispatcher - INFO - Polling stopped
+2026-05-19 09:43:28,789 - __main__ - INFO - Получен сигнал None, завершение...
+2026-05-19 09:43:28,790 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-05-19 09:43:28,812 - app.database - INFO - 🔌 Все соединения закрыты
+2026-05-19 09:43:28,813 - __main__ - INFO - Бот остановлен
+2026-06-25 18:00:57,969 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-06-25 18:00:58,029 - app.migrations - INFO - [MIGRATION] Применено. Последняя версия: 9
+2026-06-25 18:00:58,031 - __main__ - INFO - ✅ Роутеры зарегистрированы
+2026-06-25 18:00:58,032 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-06-25 18:00:58,034 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-06-25 18:00:58,035 - __main__ - INFO - ✅ Планировщик настроен
+2026-06-25 18:00:58,039 - apscheduler.scheduler - INFO - Added job "daily_tasks" to job store "default"
+2026-06-25 18:00:58,043 - apscheduler.scheduler - INFO - Added job "daily_broadcast" to job store "default"
+2026-06-25 18:00:58,043 - apscheduler.scheduler - INFO - Scheduler started
+2026-06-25 18:01:19,986 - __main__ - CRITICAL - Критическая ошибка: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+               ~~~~~~~~~~~~^
+        url,
+        ^^^^
+        data=form,
+        ^^^^^^^^^^
+        timeout=self.timeout if timeout is None else timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as resp:
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\cafe-bot\main.py", line 214, in main
+    logger.info(f"[BOT] Бот запущен (@{(await bot.get_me()).username})")
+                                        ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-06-25 18:01:20,227 - __main__ - INFO - Получен сигнал None, завершение...
+2026-06-25 18:01:20,636 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-06-25 18:01:23,420 - app.database - INFO - 🔌 Все соединения закрыты
+2026-06-25 18:01:23,786 - __main__ - INFO - Бот остановлен
+2026-06-25 18:03:08,273 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-06-25 18:03:08,331 - app.migrations - INFO - [MIGRATION] Применено. Последняя версия: 9
+2026-06-25 18:03:08,425 - __main__ - INFO - ✅ Роутеры зарегистрированы
+2026-06-25 18:03:08,488 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-06-25 18:03:08,606 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-06-25 18:03:08,757 - __main__ - INFO - ✅ Планировщик настроен
+2026-06-25 18:03:08,846 - apscheduler.scheduler - INFO - Added job "daily_tasks" to job store "default"
+2026-06-25 18:03:08,861 - apscheduler.scheduler - INFO - Added job "daily_broadcast" to job store "default"
+2026-06-25 18:03:08,947 - apscheduler.scheduler - INFO - Scheduler started
+2026-06-25 18:03:30,517 - __main__ - CRITICAL - Критическая ошибка: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+               ~~~~~~~~~~~~^
+        url,
+        ^^^^
+        data=form,
+        ^^^^^^^^^^
+        timeout=self.timeout if timeout is None else timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as resp:
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\cafe-bot\main.py", line 214, in main
+    logger.info(f"[BOT] Бот запущен (@{(await bot.get_me()).username})")
+                                        ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Превышен таймаут семафора]
+2026-06-25 18:03:30,565 - __main__ - INFO - Получен сигнал None, завершение...
+2026-06-25 18:03:30,568 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-06-25 18:03:30,583 - app.database - INFO - 🔌 Все соединения закрыты
+2026-06-25 18:03:30,851 - __main__ - INFO - Бот остановлен
+2026-06-25 15:12:38,850 - app.database - INFO - ✅ Пул соединений инициализирован (5 соединений)
+2026-06-25 15:12:39,234 - app.migrations - INFO - [MIGRATION] Применено. Последняя версия: 9
+2026-06-25 15:12:39,234 - __main__ - INFO - ✅ Роутеры зарегистрированы
+2026-06-25 15:12:39,235 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-06-25 15:12:39,235 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-06-25 15:12:39,236 - __main__ - INFO - ✅ Планировщик настроен
+2026-06-25 15:12:39,236 - apscheduler.scheduler - INFO - Added job "daily_tasks" to job store "default"
+2026-06-25 15:12:39,237 - apscheduler.scheduler - INFO - Added job "daily_broadcast" to job store "default"
+2026-06-25 15:12:39,237 - apscheduler.scheduler - INFO - Scheduler started
+2026-06-25 15:12:39,650 - __main__ - INFO - [BOT] Бот запущен (@Bogatyr2026bot)
+2026-06-25 15:12:39,651 - __main__ - INFO - Админы: [8970465207, 128958273]
+2026-06-25 15:12:39,652 - aiogram.dispatcher - INFO - Start polling
+2026-06-25 15:12:39,786 - aiogram.dispatcher - INFO - Run polling for bot @Bogatyr2026bot id=8871323601 - 'Bogatyr_bot'
+2026-06-25 15:12:48,130 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:12:48,131 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8871323601)
+2026-06-25 15:12:53,184 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:12:53,185 - aiogram.dispatcher - WARNING - Sleep for 1.547285 seconds and try again... (tryings = 1, bot id = 8871323601)
+2026-06-25 15:12:59,580 - aiogram.dispatcher - INFO - Connection established (tryings = 2, bot id = 8871323601)
+2026-06-25 15:12:59,583 - app.handlers.user_handlers - INFO - Новый пользователь: 8970465207 (@None)
+2026-06-25 15:13:00,047 - aiogram.event - INFO - Update id=142039259 is handled. Duration 465 ms by bot id=8871323601
+2026-06-25 15:13:02,298 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:13:02,298 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8871323601)
+2026-06-25 15:13:09,946 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:13:09,947 - aiogram.dispatcher - WARNING - Sleep for 1.447625 seconds and try again... (tryings = 1, bot id = 8871323601)
+2026-06-25 15:13:13,394 - aiogram.dispatcher - INFO - Connection established (tryings = 2, bot id = 8871323601)
+2026-06-25 15:13:13,568 - aiogram.event - INFO - Update id=142039260 is handled. Duration 172 ms by bot id=8871323601
+2026-06-25 15:13:14,550 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:13:14,550 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8871323601)
+2026-06-25 15:13:16,707 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 8871323601)
+2026-06-25 15:13:16,938 - aiogram.event - INFO - Update id=142039261 is handled. Duration 230 ms by bot id=8871323601
+2026-06-25 15:13:17,628 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:13:17,629 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8871323601)
+2026-06-25 15:13:20,008 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 8871323601)
+2026-06-25 15:13:20,185 - aiogram.event - INFO - Update id=142039262 is handled. Duration 175 ms by bot id=8871323601
+2026-06-25 15:13:23,258 - aiogram.event - INFO - Update id=142039263 is handled. Duration 178 ms by bot id=8871323601
+2026-06-25 15:13:32,956 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:13:32,956 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8871323601)
+2026-06-25 15:13:34,095 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 8871323601)
+2026-06-25 15:13:34,275 - aiogram.event - INFO - Update id=142039264 is handled. Duration 179 ms by bot id=8871323601
+2026-06-25 15:13:38,129 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:13:38,129 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8871323601)
+2026-06-25 15:13:41,279 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 8871323601)
+2026-06-25 15:13:41,458 - aiogram.event - INFO - Update id=142039265 is handled. Duration 178 ms by bot id=8871323601
+2026-06-25 15:13:43,774 - aiogram.event - INFO - Update id=142039266 is handled. Duration 154 ms by bot id=8871323601
+2026-06-25 15:13:45,786 - aiogram.event - INFO - Update id=142039267 is handled. Duration 212 ms by bot id=8871323601
+2026-06-25 15:13:48,068 - aiogram.event - INFO - Update id=142039268 is handled. Duration 325 ms by bot id=8871323601
+2026-06-25 15:13:49,865 - aiogram.event - INFO - Update id=142039269 is handled. Duration 350 ms by bot id=8871323601
+2026-06-25 15:13:50,139 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:13:50,139 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8871323601)
+2026-06-25 15:13:52,019 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 8871323601)
+2026-06-25 15:13:52,356 - aiogram.event - INFO - Update id=142039270 is handled. Duration 336 ms by bot id=8871323601
+2026-06-25 15:13:54,275 - aiogram.event - INFO - Update id=142039271 is handled. Duration 154 ms by bot id=8871323601
+2026-06-25 15:13:57,591 - aiogram.event - INFO - Update id=142039272 is handled. Duration 206 ms by bot id=8871323601
+2026-06-25 15:13:59,736 - aiogram.event - INFO - Update id=142039273 is handled. Duration 155 ms by bot id=8871323601
+2026-06-25 15:14:02,727 - aiogram.event - INFO - Update id=142039274 is handled. Duration 252 ms by bot id=8871323601
+2026-06-25 15:14:03,369 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:14:03,369 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8871323601)
+2026-06-25 15:14:08,148 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:14:08,148 - aiogram.dispatcher - WARNING - Sleep for 1.214014 seconds and try again... (tryings = 1, bot id = 8871323601)
+2026-06-25 15:14:13,280 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:14:13,280 - aiogram.dispatcher - WARNING - Sleep for 1.675966 seconds and try again... (tryings = 2, bot id = 8871323601)
+2026-06-25 15:14:20,215 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:14:20,215 - aiogram.dispatcher - WARNING - Sleep for 2.145623 seconds and try again... (tryings = 3, bot id = 8871323601)
+2026-06-25 15:14:25,533 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:14:25,533 - aiogram.dispatcher - WARNING - Sleep for 2.744195 seconds and try again... (tryings = 4, bot id = 8871323601)
+2026-06-25 15:14:38,419 - aiogram.dispatcher - INFO - Connection established (tryings = 5, bot id = 8871323601)
+2026-06-25 15:14:41,594 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:14:41,595 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8871323601)
+2026-06-25 15:14:46,351 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-06-25 15:14:46,352 - aiogram.dispatcher - WARNING - Sleep for 1.186439 seconds and try again... (tryings = 1, bot id = 8871323601)
+2026-06-25 15:14:47,558 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-06-25 15:14:47,560 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-06-25 15:14:47,561 - aiogram.dispatcher - INFO - Polling stopped for bot @Bogatyr2026bot id=8871323601 - 'Bogatyr_bot'
+2026-06-25 15:14:47,561 - aiogram.dispatcher - INFO - Polling stopped
+2026-06-25 15:14:47,813 - __main__ - INFO - Получен сигнал None, завершение...
+2026-06-25 15:14:47,814 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-06-25 15:14:47,830 - app.database - INFO - 🔌 Все соединения закрыты
+2026-06-25 15:14:47,830 - __main__ - INFO - Бот остановлен

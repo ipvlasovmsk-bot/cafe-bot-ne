@@ -1,0 +1,80 @@
+services:
+  # === Основной бот (polling режим) ===
+  bot:
+    build: .
+    container_name: cafe-bot
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./cafe_ecosystem.db:/app/cafe_ecosystem.db
+      - ./backups:/app/backups
+      - ./bot.log:/app/bot.log
+      - ./process_manager.log:/app/process_manager.log
+    environment:
+      - MODE=polling
+    networks:
+      - cafe-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os; exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.5'
+
+  # === Бот в webhook режиме (раскомментируйте если нужен webhook) ===
+  # bot-webhook:
+  #   build: .
+  #   container_name: cafe-bot-webhook
+  #   restart: unless-stopped
+  #   env_file: .env
+  #   ports:
+  #     - "8080:8080"
+  #   volumes:
+  #     - ./cafe_ecosystem.db:/app/cafe_ecosystem.db
+  #     - ./backups:/app/backups
+  #   environment:
+  #     - MODE=webhook
+  #     - WEBHOOK_URL=https://your-domain.com/webhook
+  #     - WEBHOOK_PORT=8080
+  #   networks:
+  #     - cafe-network
+
+  # === Мониторинг (опционально) ===
+  monitor:
+    build: .
+    container_name: cafe-bot-monitor
+    restart: unless-stopped
+    env_file: .env
+    entrypoint: ["python", "monitor.py"]
+    environment:
+      - MONITOR_INTERVAL=60
+    volumes:
+      - ./monitor.log:/app/monitor.log
+    networks:
+      - cafe-network
+    depends_on:
+      - bot
+
+  # === Nginx reverse proxy (для webhook режима) ===
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: cafe-bot-nginx
+  #   restart: unless-stopped
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  #     - ./ssl:/etc/nginx/ssl:ro
+  #   networks:
+  #     - cafe-network
+  #   depends_on:
+  #     - bot-webhook
+
+networks:
+  cafe-network:
+    driver: bridge
