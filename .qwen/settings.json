@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(type *)",
+      "Bash(python *)",
+      "Bash(mkdir *)",
+      "Bash(dir *)",
+      "Bash(timeout *)",
+      "Bash(taskkill *)",
+      "Bash(tasklist)",
+      "Bash(del *)",
+      "Bash(netsh *)",
+      "Bash(findstr *)",
+      "Bash(ping *)",
+      "Bash(curl *)",
+      "Bash(pytest *)",
+      "Bash(f)"
+    ]
+  },
+  "$version": 3
+}
